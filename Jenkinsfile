@@ -1,5 +1,10 @@
 pipeline {
   agent any
+  def wildfly.hostname = http://wildfly1.wildfly-khw2r.10.4.48.114.xip.io
+  def wildfly.port = 9990
+  def wildfly.username = admin
+  def wildfly.password = admindev12345
+  env.PATH="${wildfly.hostname}:${wildfly.port}:${wildfly.username}:${wildfly.password}:${env.PATH}"
   stages {
     stage('Pull') {
       steps {
@@ -22,7 +27,7 @@ pipeline {
     stage('Deliver for Development Environment') {
       
       steps {
-	    sh './mvnw -ntp verify -P-webpack -Pprod -DskipTests && ./mvnw wildfly:deploy-only -Pdomain-mode'
+	    sh './mvnw -ntp verify -P-webpack -Pprod -DskipTests && ./mvnw wildfly:deploy-only -Pstandalone-mode'
         
         }
 
