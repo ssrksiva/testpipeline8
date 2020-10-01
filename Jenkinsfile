@@ -13,6 +13,12 @@ pipeline {
       }
     }
 
+    stage('Clean') {
+      steps {
+        sh 'chmod +x mvnw'
+        sh './mvnw -ntp clean -P-webpack'
+      }
+    }
     stage('Deliver for Development Environment') {
       
       steps {
