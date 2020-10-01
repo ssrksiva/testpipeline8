@@ -1,6 +1,5 @@
 pipeline {
   agent any
- 
   stages {
     stage('Pull') {
       steps {
@@ -20,14 +19,12 @@ pipeline {
         sh './mvnw -ntp clean -P-webpack'
       }
     }
-    stage('Deliver for Development Environment') {
-      
-      steps {
-	    sh './mvnw -ntp verify -P-webpack -Pprod -DskipTests && ./mvnw wildfly:deploy-only -Pstandalone-mode'
-        
-        }
 
+    stage('Deliver for Development Environment') {
+      steps {
+        sh './mvnw -ntp verify -P-webpack -Pprod -DskipTests && ./mvnw wildfly:deploy-only -Pstandalone-mode -Dwildfly.hostname="http://wildfly1.wildfly-khw2r.10.4.48.114.xip.io" -Dwildfly.port="9990" -Dwildfly.username="admin" -Dwildfly.password="admindev12345"'
       }
     }
 
   }
+}
