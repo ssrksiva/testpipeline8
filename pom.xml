@@ -1182,7 +1182,7 @@
                         <groupId>org.wildfly.plugins</groupId>
                         <artifactId>wildfly-maven-plugin</artifactId>
                         <configuration>
-                            <skip>true</skip>
+                            <skip>false</skip>
                             <domain>
                                 <server-groups>
                                     <server-group>other-server-group</server-group>
@@ -1215,7 +1215,7 @@
                         <groupId>org.wildfly.plugins</groupId>
                         <artifactId>wildfly-maven-plugin</artifactId>
                         <configuration>
-                            <skip>true</skip>
+                            <skip>false</skip>
                             <filename>${artifactId}.${packaging}</filename>
                             <port>${wildfly.mgtPort}</port>
                         </configuration>

@@ -22,8 +22,8 @@ pipeline {
     stage('Deliver for Development Environment') {
       
       steps {
-	    sh './mvnw -ntp verify -P-webpack -Pprod -DskipTests'
-        sh './mvnw wildfly:deploy-only -Pstandaone-mode'
+	    sh './mvnw -ntp verify -P-webpack -Pprod -DskipTests && ./mvnw wildfly:deploy-only -Pdomain-mode'
+        
         }
 
       }
