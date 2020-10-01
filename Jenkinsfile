@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Pull') {
       steps {
-        git(url: 'https://github.com/ssrksiva/testpipeline5.git', branch: 'develop', poll: true)
+        git(url: 'https://github.com/ssrksiva/testpipeline8.git', branch: 'master', poll: true)
       }
     }
 
